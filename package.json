@@ -30,7 +30,7 @@
   },
   "dependencies": {
     "amqplib": "^0.5.1",
-    "iamtest": "^1.5.2",
+    "iamtest": "^1.5.3",
     "lodash.once": "^4.1.1"
   },
   "devDependencies": {
