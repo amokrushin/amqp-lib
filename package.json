@@ -25,8 +25,8 @@
     "url": "git+https://github.com/amokrushin/amqp-lib.git"
   },
   "scripts": {
-    "git-reset": "git pull && git reset --hard HEAD && git clean -df",
-    "test": "iamtest"
+    "git-reset": "git reset --hard HEAD && git clean -df && git pull",
+    "test": "iamtest -r spec"
   },
   "dependencies": {
     "amqplib": "^0.5.1",
