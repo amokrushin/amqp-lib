@@ -62,12 +62,10 @@ test('broadcast', (t) => {
         t.deepEqual(req, reqData, 'request 2 match');
         res(resData);
     });
-    setTimeout(() => {
-        amqp3.broadcast('test-broadcast', { timeout: 4000 }, reqData, (res) => {
-            t.deepEqual(res, [resData, resData], 'response match');
-            t.end();
-        });
-    }, 2000);
+    amqp3.broadcast('test-broadcast', { timeout: 10000, max: 2 }, reqData, (res) => {
+        t.deepEqual(res, [resData, resData], 'response match');
+        t.end();
+    });
 });
 
 test('after', (t) => {
