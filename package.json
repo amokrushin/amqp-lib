@@ -1,6 +1,6 @@
 {
   "name": "amqp-lib",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "description": "",
   "keywords": [
     "amqp",
@@ -30,7 +30,7 @@
   },
   "dependencies": {
     "amqplib": "^0.5.1",
-    "iamtest": "^1.5.1",
+    "iamtest": "^1.5.2",
     "lodash.once": "^4.1.1"
   },
   "devDependencies": {
