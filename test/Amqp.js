@@ -54,17 +54,20 @@ test('queue', (t) => {
 test('broadcast', (t) => {
     const reqData = { a: 1 };
     const resData = { b: 2 };
-    amqp1.onBroadcast('test-broadcast', (req, res) => {
-        t.deepEqual(req, reqData, 'request 1 match');
-        res(resData);
-    });
-    amqp2.onBroadcast('test-broadcast', (req, res) => {
-        t.deepEqual(req, reqData, 'request 2 match');
-        res(resData);
-    });
-    amqp3.broadcast('test-broadcast', { timeout: 10000, max: 2 }, reqData, (res) => {
-        t.deepEqual(res, [resData, resData], 'response match');
-        t.end();
+    Promise.all([
+        amqp1.onBroadcast('test-broadcast', (req, res) => {
+            t.deepEqual(req, reqData, 'request 1 match');
+            res(resData);
+        }),
+        amqp2.onBroadcast('test-broadcast', (req, res) => {
+            t.deepEqual(req, reqData, 'request 2 match');
+            res(resData);
+        }),
+    ]).then(() => {
+        amqp3.broadcast('test-broadcast', { timeout: 10000, max: 2 }, reqData, (res) => {
+            t.deepEqual(res, [resData, resData], 'response match');
+            t.end();
+        });
     });
 });
 
