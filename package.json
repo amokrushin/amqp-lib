@@ -1,0 +1,42 @@
+{
+  "name": "amqp-lib",
+  "version": "0.3.0",
+  "description": "",
+  "keywords": [
+    "amqp",
+    "rabbitmq"
+  ],
+  "homepage": "https://github.com/amokrushin/amqp-lib#readme",
+  "bugs": {
+    "url": "https://github.com/amokrushin/amqp-lib/issues"
+  },
+  "license": "MIT",
+  "author": "Anton Mokrushin <anton@mokr.org> (mokr.org)",
+  "files": [
+    "lib",
+    "index.js"
+  ],
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/amokrushin/amqp-lib.git"
+  },
+  "scripts": {
+    "git-reset": "git pull && git reset --hard HEAD && git clean -df",
+    "test": "iamtest"
+  },
+  "dependencies": {
+    "amqplib": "^0.5.1",
+    "iamtest": "^1.5.1",
+    "lodash.once": "^4.1.1"
+  },
+  "devDependencies": {
+    "tape": "^4.6.3"
+  },
+  "engines": {
+    "node": ">=6.0.0"
+  }
+}
